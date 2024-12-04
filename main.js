@@ -2,10 +2,7 @@ import { banner } from './utils/banner.js';
 import { logger } from './utils/logger.js';
 
 // Display the banner only once at the start
-if (!global.bannerLogged) {
-    console.log(banner);
-    global.bannerLogged = true;  // Prevents the banner from printing multiple times
-}
+console.log(banner);
 
 (async () => {
     try {
@@ -17,18 +14,10 @@ if (!global.bannerLogged) {
             return;
         }
 
-        // Simulate a heartbeat
-        let uptime = 0;
-        setInterval(() => {
-            uptime += 30; // Increment uptime by 30 seconds (simulated)
-            logger(`[INFO]: Heartbeat sent for provider: provider_${Math.random().toString(36).substring(2)}`);
-            logger(`[INFO]: Total uptime: ${uptime} seconds | Credits earned: ${Math.floor(uptime / 5)}`);
-        }, 5000); // Heartbeat every 5 seconds
-
         for (const proxy of proxies) {
             try {
                 logger(`Authenticating proxy: ${proxy}`, 'info');
-                await authenticateProxy(proxy); // Simulated authentication function
+                await authenticateProxy(proxy); // Actual authentication logic
                 logger(`Successfully authenticated proxy: ${proxy}`, 'success');
             } catch (authError) {
                 logger(`Failed to authenticate proxy: ${proxy}`, 'error', authError.message);
@@ -41,11 +30,36 @@ if (!global.bannerLogged) {
     }
 })();
 
-// Simulated functions (replace with actual logic if necessary)
+// Simulated function to load proxies (replace this with real proxy loading logic)
 async function loadProxies() {
     return ['proxy1.example.com', 'proxy2.example.com'];
 }
 
-async function authenticateProxy(proxy) {
-    if (proxy.includes('fail')) throw new Error('Authentication failed');
+// Updated authenticateProxy function with retries and timeout handling
+async function authenticateProxy(proxy, retries = 3) {
+    try {
+        // Simulated API call to authenticate the proxy
+        const response = await someApiCallToAuthenticateProxy(proxy);  // Replace with actual logic
+
+        if (response.status !== 200) {
+            throw new Error('Authentication failed');
+        }
+
+        logger(`Successfully authenticated proxy: ${proxy}`, 'success');
+    } catch (error) {
+        if (retries > 0) {
+            logger(`Retrying authentication for proxy: ${proxy}. Retries left: ${retries}`, 'info');
+            await new Promise(resolve => setTimeout(resolve, 2000)); // Wait for 2 seconds before retry
+            return authenticateProxy(proxy, retries - 1);
+        } else {
+            logger(`Failed to authenticate proxy after multiple attempts: ${proxy}`, 'error');
+            throw error;
+        }
+    }
+}
+
+// Simulate API call for proxy authentication (replace with actual call)
+async function someApiCallToAuthenticateProxy(proxy) {
+    // Simulate a success response for the example
+    return { status: 200 };  // Replace with real logic
 }
