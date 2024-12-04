@@ -1,17 +1,19 @@
-import chalk from 'chalk';
-
+// utils/banner.js
 export const banner = `
-${chalk.yellow('                        Welcome! Enjoy ser\'s')}
-            
-${chalk.blue('          ██████╗ ')}${chalk.yellow('███████╗')}${chalk.blue('██╗   ██╗')}${chalk.yellow('    ███████╗ ')}${chalk.blue('██████╗ ')}${chalk.yellow('██╗  ██╗')}
-${chalk.blue('          ██╔══██╗')}${chalk.yellow('██╔════╝')}${chalk.blue('██║   ██║')}${chalk.yellow('    ██╔════╝ ')}${chalk.blue('██╔══██╗')}${chalk.yellow('██║  ██║')}
-${chalk.blue('          ██║  ██║')}${chalk.yellow('█████╗  ')}${chalk.blue('██║   ██║')}${chalk.yellow('    ███████╗ ')}${chalk.blue('██████╔╝ ')}${chalk.yellow('███████║')}
-${chalk.blue('          ██║  ██║')}${chalk.yellow('██╔══╝  ')}${chalk.blue('╚██╗ ██╔╝')}${chalk.yellow('    ╚════██║ ')}${chalk.blue('██╔══██╗')}${chalk.yellow('██╔══██║')}
-${chalk.blue('          ██████╔╝')}${chalk.yellow('███████╗')}${chalk.blue('╚████╔╝')}${chalk.yellow('     ███████║ ')}${chalk.blue('██████╔╝')}${chalk.yellow('██║  ██║')}
-${chalk.blue('          ╚═════╝ ')}${chalk.yellow('╚══════╝')}${chalk.blue('  ╚═══╝ ')}${chalk.yellow('     ╚══════╝ ')}${chalk.blue('╚═════╝ ')}${chalk.yellow('╚═╝  ╚═╝')}
-                                                   
-${chalk.blue('                 Running Aigaea BETA CLI Version')}
-${chalk.yellow('                    ***github.com/SKaaalper***')}
+
+                                       Welcome! Enjoy ser's
+
+
+                        ██████╗ ███████╗██╗   ██╗    ███████╗ █████╗ ██╗  ██╗
+                        ██╔══██╗██╔════╝██║   ██║    ██╔════╝██╔══██╗██║  ██║
+                        ██║  ██║█████╗  ██║   ██║    ███████╗███████║███████║
+                        ██║  ██║██╔══╝  ╚██╗ ██╔╝    ╚════██║██╔══██║██╔══██║
+                        ██████╔╝███████╗ ╚████╔╝     ███████║██║  ██║██║  ██║
+                        ╚═════╝ ╚══════╝  ╚═══╝      ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝
+                                                    
+                                 Running Aigaea BETA CLI Version
+                                    ***github.com/SKaaalper***
+
 `;
 
 console.log(banner);
