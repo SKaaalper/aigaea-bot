@@ -20,4 +20,3 @@ export const logger = (message, level = 'info', details = '') => {
             break;
     }
 };
-
