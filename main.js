@@ -1,8 +1,8 @@
 import { banner } from './utils/banner.js';
 import { logger } from './utils/logger.js';
 
-// Display the banner at the start once
-console.log(banner); // This is fine, just once at the start
+// Display the banner only once at the start
+console.log(banner);
 
 (async () => {
     try {
@@ -38,4 +38,5 @@ async function loadProxies() {
 async function authenticateProxy(proxy) {
     if (proxy.includes('fail')) throw new Error('Authentication failed');
 }
+
 
