@@ -4,7 +4,6 @@ import { logger } from './utils/logger.js';
 console.log(banner); // Display the banner at the start
 
 (async () => {
-    // Replace the obfuscated logic with clear functionality
     try {
         logger('Starting Aigaea CLI...', 'info');
         
