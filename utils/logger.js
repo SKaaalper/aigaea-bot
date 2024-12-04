@@ -1,9 +1,25 @@
 // utils/logger.js
-export const logger = (message, level = 'info', extra = '') => {
-    const levels = {
-        success: '\x1b[32m%s\x1b[0m',  // Green
-        error: '\x1b[31m%s\x1b[0m',    // Red
-        info: '\x1b[34m%s\x1b[0m'      // Blue
-    };
-    console.log(levels[level] || levels.info, message, extra);
+import chalk from 'chalk';
+
+export const logger = (message, level = 'info', details = '') => {
+    switch (level) {
+        case 'info':
+            console.log(chalk.blue(`[INFO]: ${message}`));
+            break;
+        case 'success':
+            console.log(chalk.green(`[SUCCESS]: ${message}`));
+            break;
+        case 'error':
+            console.log(chalk.red(`[ERROR]: ${message}`));
+            if (details) {
+                console.log(chalk.red(`Details: ${details}`));
+            }
+            break;
+        case 'warning':
+            console.log(chalk.yellow(`[WARNING]: ${message}`));
+            break;
+        default:
+            console.log(chalk.white(`[LOG]: ${message}`));
+            break;
+    }
 };
