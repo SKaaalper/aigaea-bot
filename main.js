@@ -17,6 +17,8 @@ console.log(banner);
         logger('Starting Aigaea CLI...', 'info');
         
         const proxies = await loadProxies(); // Simulated proxy loader
+        console.log("Loaded Proxies:", proxies);  // Log loaded proxies for debugging
+        
         if (proxies.length === 0) {
             logger('No proxies found in the list.', 'error');
             return;
@@ -24,6 +26,9 @@ console.log(banner);
 
         const token = await readFile('token.txt');  // Read token from token.txt
         const id = await readFile('id.txt');  // Read ID from id.txt
+        
+        console.log("Token:", token);  // Log token for debugging
+        console.log("ID:", id);  // Log ID for debugging
         
         if (!token || !id) {
             logger('Token or ID not found. Please check your token.txt and id.txt files.', 'error');
@@ -63,7 +68,7 @@ console.log(banner);
 
 // Simulated function to load proxies (replace this with real proxy loading logic)
 async function loadProxies() {
-    return ['proxy1.example.com', 'proxy2.example.com'];
+    return ['proxy1.example.com', 'proxy2.example.com'];  // Replace with actual logic
 }
 
 // Function to read file content (token.txt or id.txt)
@@ -71,6 +76,7 @@ async function readFile(fileName) {
     return new Promise((resolve, reject) => {
         fs.readFile(path.join(__dirname, fileName), 'utf8', (err, data) => {
             if (err) {
+                console.log(`Error reading ${fileName}: ${err.message}`);  // Debugging log
                 reject(`Error reading ${fileName}: ${err.message}`);
             } else {
                 resolve(data.trim());  // Remove any extra spaces or newlines
@@ -81,6 +87,10 @@ async function readFile(fileName) {
 
 // Function for proxy authentication using an API call (using Axios)
 async function authenticateProxy(proxy, token, id, retries = 3) {
+    console.log(`Attempting to authenticate proxy: ${proxy}`);  // Debugging log
+    console.log(`Using token: ${token}`);  // Debugging log
+    console.log(`Using ID: ${id}`);  // Debugging log
+
     try {
         const response = await someApiCallToAuthenticateProxy(proxy, token, id);  // Actual API call with token and ID
 
@@ -105,15 +115,20 @@ async function authenticateProxy(proxy, token, id, retries = 3) {
 async function someApiCallToAuthenticateProxy(proxy, token, id) {
     try {
         // Replace the URL with the actual authentication endpoint you're using
-        const response = await axios.post('https://your-api-endpoint.com/authenticate', {
+        const apiUrl = 'https://your-api-endpoint.com/authenticate';
+        console.log(`Sending request to: ${apiUrl}`);  // Debugging log
+        console.log(`Request body: { proxy: ${proxy}, token: ${token}, id: ${id} }`);  // Debugging log
+
+        const response = await axios.post(apiUrl, {
             proxy: proxy,
             token: token,  // Pass the token from the file
             id: id,  // Pass the ID from the file
-            // Add any other necessary parameters here
         });
 
+        console.log("API Response:", response.data);  // Debugging log
         return response;  // Assume the response contains a 'status' property
     } catch (error) {
         throw new Error(`Authentication failed: ${error.message}`);
     }
 }
+
