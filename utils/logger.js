@@ -1,4 +1,3 @@
-// utils/logger.js
 import chalk from 'chalk';
 
 export const logger = (message, level = 'info', details = '') => {
