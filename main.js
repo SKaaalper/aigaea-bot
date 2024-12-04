@@ -6,7 +6,7 @@ console.log(banner); // Display the banner at the start
 (async () => {
     try {
         logger('Starting Aigaea CLI...', 'info');
-
+        
         const proxies = await loadProxies(); // Simulated proxy loader
         if (proxies.length === 0) {
             logger('No proxies found in the list.', 'error');
@@ -31,12 +31,11 @@ console.log(banner); // Display the banner at the start
 
 // Simulated functions (replace with actual logic if necessary)
 async function loadProxies() {
-    // Simulate loading proxies (replace with file reading or API fetching)
     return ['proxy1.example.com', 'proxy2.example.com'];
 }
 
 async function authenticateProxy(proxy) {
-    // Simulate proxy authentication logic
     if (proxy.includes('fail')) throw new Error('Authentication failed');
 }
+
 
