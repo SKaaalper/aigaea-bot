@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "A script to handle proxies, authentication, and pinging with unique browser IDs.",
     "main": "index.js",
+    "type": "module",
     "scripts": {
         "start": "node index.js"
     },
@@ -30,3 +31,4 @@
     },
     "homepage": "https://github.com/SKaaalper/aigaea-bot#readme"
 }
+
