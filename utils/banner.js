@@ -1,17 +1,17 @@
-// utils/banner.js
-export const banner = `
+import chalk from 'chalk';
 
-                        Welcome! Enjoy ser's
-               
-          ██████╗ ███████╗██╗   ██╗    ███████╗ █████╗ ██╗  ██╗
-          ██╔══██╗██╔════╝██║   ██║    ██╔════╝██╔══██╗██║  ██║
-          ██║  ██║█████╗  ██║   ██║    ███████╗███████║███████║
-          ██║  ██║██╔══╝  ╚██╗ ██╔╝    ╚════██║██╔══██║██╔══██║
-          ██████╔╝███████╗ ╚████╔╝     ███████║██║  ██║██║  ██║
-          ╚═════╝ ╚══════╝  ╚═══╝      ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝
-                                                     
-                 Running Aigaea BETA CLI Version                
-                    ***github.com/SKaaalper***
+export const banner = `
+${chalk.yellow('                        Welcome! Enjoy ser\'s')}
+            
+${chalk.blue('          ██████╗ ')}${chalk.yellow('███████╗')}${chalk.blue('██╗   ██╗')}${chalk.yellow('    ███████╗ ')}${chalk.blue('██████╗ ')}${chalk.yellow('██╗  ██╗')}
+${chalk.blue('          ██╔══██╗')}${chalk.yellow('██╔════╝')}${chalk.blue('██║   ██║')}${chalk.yellow('    ██╔════╝ ')}${chalk.blue('██╔══██╗')}${chalk.yellow('██║  ██║')}
+${chalk.blue('          ██║  ██║')}${chalk.yellow('█████╗  ')}${chalk.blue('██║   ██║')}${chalk.yellow('    ███████╗ ')}${chalk.blue('██████╔╝ ')}${chalk.yellow('███████║')}
+${chalk.blue('          ██║  ██║')}${chalk.yellow('██╔══╝  ')}${chalk.blue('╚██╗ ██╔╝')}${chalk.yellow('    ╚════██║ ')}${chalk.blue('██╔══██╗')}${chalk.yellow('██╔══██║')}
+${chalk.blue('          ██████╔╝')}${chalk.yellow('███████╗')}${chalk.blue('╚████╔╝')}${chalk.yellow('     ███████║ ')}${chalk.blue('██████╔╝')}${chalk.yellow('██║  ██║')}
+${chalk.blue('          ╚═════╝ ')}${chalk.yellow('╚══════╝')}${chalk.blue('  ╚═══╝ ')}${chalk.yellow('     ╚══════╝ ')}${chalk.blue('╚═════╝ ')}${chalk.yellow('╚═╝  ╚═╝')}
+                                                   
+${chalk.blue('                 Running Aigaea BETA CLI Version')}
+${chalk.yellow('                    ***github.com/SKaaalper***')}
 `;
 
 console.log(banner);
