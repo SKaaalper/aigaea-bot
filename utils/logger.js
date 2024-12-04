@@ -1,27 +1,24 @@
 export const logger = (message, level = 'info', details = '') => {
-    const timestamp = new Date().toISOString();  // Get the current UTC timestamp in ISO format
-    let logMessage = `[${timestamp}] [${level.toUpperCase()}]: ${message}`;
-    
-    if (details) {
-        logMessage += ` | Details: ${details}`;
-    }
-    
-    // Output the log message based on the log level
+    const timestamp = new Date().toISOString();
     switch (level) {
         case 'info':
-            console.log(logMessage);
+            console.log(`[${timestamp}] [INFO]: ${message}`);
             break;
         case 'success':
-            console.log(logMessage);
+            console.log(`[${timestamp}] [SUCCESS]: ${message}`);
             break;
         case 'error':
-            console.error(logMessage);
+            console.log(`[${timestamp}] [ERROR]: ${message}`);
+            if (details) {
+                console.log(`Details: ${details}`);
+            }
             break;
         case 'warning':
-            console.warn(logMessage);
+            console.log(`[${timestamp}] [WARNING]: ${message}`);
             break;
         default:
-            console.log(logMessage);
+            console.log(`[${timestamp}] [LOG]: ${message}`);
             break;
     }
 };
+
