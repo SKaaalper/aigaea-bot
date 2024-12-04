@@ -1,5 +1,5 @@
 {
-  "name": "aigaea-network-bot",
+  "name": "aigaea-bot",
   "version": "1.0.0",
   "description": "A script to handle proxies, authentication, and pinging with unique browser IDs.",
   "main": "main.js",
