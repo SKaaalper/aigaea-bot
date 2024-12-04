@@ -2,7 +2,7 @@ import { banner } from './utils/banner.js';
 import { logger } from './utils/logger.js';
 
 // Display the banner at the start once
-console.log(banner); // Only once here, do not repeat in the async block or elsewhere
+console.log(banner); // This is fine, just once at the start
 
 (async () => {
     try {
