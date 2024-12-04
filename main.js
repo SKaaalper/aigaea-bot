@@ -3,6 +3,11 @@ import { logger } from './utils/logger.js';
 import axios from 'axios';  // Import Axios for API calls
 import fs from 'fs';  // Import fs to read files
 import path from 'path';  // To handle file paths
+import { fileURLToPath } from 'url';  // To handle the current directory in ES modules
+
+// Workaround for __dirname in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Display the banner only once at the start
 console.log(banner);
@@ -61,7 +66,7 @@ async function loadProxies() {
     return ['proxy1.example.com', 'proxy2.example.com'];
 }
 
-// Function to read file content
+// Function to read file content (token.txt or id.txt)
 async function readFile(fileName) {
     return new Promise((resolve, reject) => {
         fs.readFile(path.join(__dirname, fileName), 'utf8', (err, data) => {
@@ -112,4 +117,3 @@ async function someApiCallToAuthenticateProxy(proxy, token, id) {
         throw new Error(`Authentication failed: ${error.message}`);
     }
 }
-
