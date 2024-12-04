@@ -1,24 +1,23 @@
-import chalk from 'chalk';
-
 export const logger = (message, level = 'info', details = '') => {
     switch (level) {
         case 'info':
-            console.log(chalk.blue(`[INFO]: ${message}`));
+            console.log(`[INFO]: ${message}`);
             break;
         case 'success':
-            console.log(chalk.green(`[SUCCESS]: ${message}`));
+            console.log(`[SUCCESS]: ${message}`);
             break;
         case 'error':
-            console.log(chalk.red(`[ERROR]: ${message}`));
+            console.log(`[ERROR]: ${message}`);
             if (details) {
-                console.log(chalk.red(`Details: ${details}`));
+                console.log(`Details: ${details}`);
             }
             break;
         case 'warning':
-            console.log(chalk.yellow(`[WARNING]: ${message}`));
+            console.log(`[WARNING]: ${message}`);
             break;
         default:
-            console.log(chalk.white(`[LOG]: ${message}`));
+            console.log(`[LOG]: ${message}`);
             break;
     }
 };
+
